@@ -14,7 +14,7 @@
 - Language: Typescript.
 - Angular: Components, Models, Guards, Pipes, Services, Validators, Ngx-pagination, Ngx-spinner, Ngx-swiper-wrapper, Ngx-toastr, Rxjs.
 - Node & Express: Web API, Body Parser, JWT, Bcryptjs, Cors.
-- MySQLi: MySQLi.
+- API: MySQLi, PhpMyAdmin, Xampp.
 -  Development: ESLint, Git, Github.
 # Run Locally
 1. Run Backend
