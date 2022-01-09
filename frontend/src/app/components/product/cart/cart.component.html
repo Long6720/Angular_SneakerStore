@@ -1,0 +1,140 @@
+<!-- Breadcrumb -->
+<div class="bread__crumb">
+    <div class="grid wide">
+        <div class="col l-12 m-12 c-12">
+            <ul class="bread__crumb-list">
+                <li class="bread__crumb-item">
+                    <i class="bread__crumb-icon fas fa-home"></i>
+                    <a [routerLink]="['/']" routerLinkActive="active" class="bread__crumb-item-link">
+                        <span class="bread__crumb-item-home">Trang chủ</span>
+                    </a>
+                    <i class="bread__crumb-icon fa fa-angle-right"></i>
+                </li>
+                <li class="bread__crumb-item">
+                    <div class="bread__crumb-item-link">
+                        <span class="bread__crumb-item-title">Giỏ hàng</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div *ngIf="(cartData.data[0].numInCart) !== 0; else NotCart">
+    <!-- Cart header-->
+    <div class="cart__header">
+        <div class="grid wide">
+            <div class="cart__header-items">
+                <div class="row">
+                    <div class="col l-5 m-5 c-0">
+                        <div class="cart__header-item">Sản phẩm</div>
+                    </div>
+                    <div class="col l-3 m-3 c-0">
+                        <div class="cart__header-item cart__header-item--center">Giá</div>
+                    </div>
+                    <div class="col l-2 m-2 c-0">
+                        <div class="cart__header-item cart__header-item--center">Số lượng</div>
+                    </div>
+                    <div class="col l-2 m-2 c-0">
+                        <div class="cart__header-item cart__shoptify-item--justify-end">Thành tiền</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Cart shoptify -->
+            <div class="cart__shoptify">
+                <div class="cart__shoptify-items" *ngFor="let c of cartData.data; let i=index">
+                    <div class="row cart__shoptify--align-center">
+                        <div class="col l-5 m-5 c-12">
+                            <div class="cart__shoptify-item">
+                                <div class="cart__shoptify-info">
+                                    <img src="./assets/img_products/{{c.product.hinhsp}}" alt="" class="cart__info-img">
+                                    <div class="cart__info-title">
+                                        <h3 class="cart__info-heading">{{c.product.tensp}}
+                                        </h3>
+                                        <!-- <span class="cart__info-size">({{cartService.GetSize(i)}})</span> -->
+                                        <div class="cart__remove-item">
+                                            <i class="cart__remove-icon far fa-trash-alt" (click)="cartService.DeleteProductFromCart(i)"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-3 c-12">
+                            <div class="cart__shoptify-item">
+                                <div class="cart__shoptify-price">
+                                    <span class="cart__shoptify-money">{{c.product.dongiamoi | price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-2 m-2 c-12">
+                            <div class="cart__shoptify-item cart__shoptify-item--justify-center">
+                                <div class="cart__shoptify-quantity">
+                                    <button type="button" class="btn__item-count cart__shoptify-count" id="decrease" (click)="ChangeQuantity(i, false)">
+                                        <i class="btn__count-icon fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="number" class="cart__shoptify-input" min="1" size="4" [value]="c.numInCart" readonly [max]="c.product.soluong">
+                                    <button type="button" class="btn__item-count cart__shoptify-count" id="increase" (click)="ChangeQuantity(i, true)">
+                                        <i class="btn__count-icon fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-2 m-2 c-12">
+                            <div class="cart__shoptify-item cart__shoptify-item--justify-end">
+                                <div class="cart__shoptify-subtotal">{{cartService.CalculateSubTotal(i) | price}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cart Subtotal -->
+    <div class="cart__footer">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-8 m-8 c-12">
+                    <div class="cart__footer-left">
+                        <div class="cart__footer-note">
+                            <h3 class="cart__note-title">*Ghi chú:</h3>
+                        </div>
+                        <textarea name="note" placeholder="Thông tin khách hàng..." class="cart__note-input"></textarea>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-12">
+                    <div class="cart__footer-right">
+                        <div class="cart__summary">
+                            <h3 class="cart__summary-subtotal">Thành tiền:</h3>
+                            <span class="cart__summary-price">{{cartTotal | price}}</span>
+                        </div>
+                        <div class="cart__summary">
+                            <h3 class="cart__summary-shipping">Phí vận chuyển:</h3>
+                            <span class="cart__summary-price">Miễn phí</span>
+                        </div>
+                        <div class="cart__summary cart__summary--border">
+                            <h3 class="cart__summary-total">Tổng tiền:</h3>
+                            <span class="cart__summary-price">{{cartTotal | price}}</span>
+                        </div>
+                    </div>
+                    <div class="cart__footer-btn">
+                        <button [routerLink]="['']" routerLinkActive="active" class="btn btn__checkout btn__primary">Tiếp tục mua hàng</button>
+                        <button [routerLink]="['/checkout']" routerLinkActive="active" class="btn btn__checkout btn__primary btn__checkout--left">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #NotCart>
+    <div class="cart__header--empty">
+        <div class="grid wide">
+            <!-- Cart shoptify -->
+            <div class="cart__shoptify--empty">
+                <span class="cart__empty">Chưa có sản phẩm nào!!!</span>
+                <a [routerLink]="['/']" routerLinkActive="active" class="cart__back-link">
+                    <i class="cart__previous-icon fas fa-chevron-left"></i>
+                    <span class="cart__back-home">Tiếp tục mua hàng</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-template>

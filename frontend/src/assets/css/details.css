@@ -1,0 +1,118 @@
+/* details zoom */
+
+.details {
+    margin-bottom: 30px;
+}
+
+.details__zoom-img {
+    user-select: none;
+    -webkit-user-select: none;
+    width: 740px;
+}
+
+.details__thumb {
+    display: flex;
+    justify-content: center;
+}
+
+.details__thumb-item:first-child {
+    margin-left: 0;
+}
+
+.details__thumb-item-link {
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.details__gallery {
+    width: 140px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* details product */
+
+.details__product {
+    text-align: center;
+}
+
+.details__product-name {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.details__product-price {
+    padding-bottom: 6px;
+    display: inline-block;
+    border-bottom: 2px solid var(--text-color);
+    margin-bottom: 20px;
+}
+
+.details__product-price-current {
+    font-size: 2rem;
+    color: #f00;
+    font-weight: 600;
+}
+
+.details__product-price-old {
+    font-size: 1.8rem;
+    color: #adadad;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-top: 6px;
+}
+
+.details__product-desc {
+    font-size: 1.5rem;
+    color: #838383;
+}
+
+.details__product-size {
+    margin-top: 36px;
+}
+
+.details__product-size-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.details__product-size-list {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.details__product-size-item {
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+.details__product-size-item:hover {
+    color: var(--color-border);
+    background-color: currentColor;
+    border: 1px solid currentColor;
+}
+
+.details__product-size-item:hover .details__product-size-link {
+    color: var(--white-color);
+}
+
+.details__product-size-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.details__product-btn {
+    margin-top: 20px;
+}
+
+
+/* product same kind */
+
+.product__content-kind {
+    margin-top: 20px;
+}

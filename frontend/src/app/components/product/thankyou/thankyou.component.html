@@ -1,0 +1,72 @@
+<div class="thankyou">
+    <div class="wide grid">
+        <div class="thankyou__content">
+            <h3 class="thankyou__title">Cám ơn bạn đã tin tưởng và mua hàng của Sneaker store <i class="thankyou__title-icon fas fa-heart"></i></h3>
+            <a [routerLink]="['']" routerLinkActive="active" class="thankyou__back-link">
+                <i class="thankyou__previous-icon fas fa-chevron-left"></i>
+                <span class="thankyou__back-home">Quay về trang chủ</span>
+            </a>
+        </div>
+        <!-- thankyou header-->
+        <div class="thankyou__header">
+            <div class="grid wide">
+                <div class="thankyou__header-items">
+                    <div class="row">
+                        <div class="col l-5 m-5 c-0">
+                            <div class="thankyou__header-item">Sản phẩm</div>
+                        </div>
+                        <div class="col l-4 m-4 c-0">
+                            <div class="thankyou__header-item thankyou__header-item--center">Giá</div>
+                        </div>
+                        <div class="col l-3 m-3 c-0">
+                            <div class="thankyou__header-item thankyou__header-item--center">Số lượng</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- thankyou order -->
+                <div class="thankyou__order">
+                    <div class="thankyou__order-items" *ngfor="let p of products">
+                        <div class="row thankyou__order--align-center">
+                            <div class="col l-5 m-5 c-12">
+                                <div class="thankyou__order-item">
+                                    <div class="thankyou__order-info">
+                                        <img src="./assets/img_products/{{p.hinhsp}}" alt="{{p.tensp}}" class="thankyou__info-img">
+                                        <div class="thankyou__info-title">
+                                            <h3 class="thankyou__info-heading">{{p.tensp}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-4 m-4 c-12">
+                                <div class="thankyou__order-item">
+                                    <div class="thankyou__order-price">
+                                        <span class="thankyou__order-money">{{p.dongiamoi | price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 m-3 c-12">
+                                <div class="thankyou__order-item thankyou__order-item--justify-center">
+                                    <div class="thankyou__order-quantity">
+                                        {{p.soluong}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="thankyou__footer">
+            <div class="grid wide">
+                <div class="col l-4 m-4 c-12 thankyou__footer--mg-auto">
+                    <div class="thankyou__footer-center">
+                        <div class="thankyou__summary">
+                            <h3 class="thankyou__summary-total">Tổng tiền:</h3>
+                            <span class="thankyou__summary-price">{{cartTotal | price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="checkout">
+    <div class="wide grid">
+        <div class="row ">
+            <div class="col l-8 m-8 c-12">
+                <main class="checkout__main">
+                    <div class="checkout__logo">
+                        <a href="" class="checkout__link">
+                            <img src="./assets/img/logo__checkout.png" alt="" class="checkout__logo-img">
+                        </a>
+                    </div>
+                    <div class="checkout__main-content">
+                        <div class="row">
+                            <div class="col l-6 m-6 c-6">
+                                <section class="checkout__left">
+                                    <div class="checkout__section-header">
+                                        <span class="checkout__header-name">Thông tin nhận hàng</span>
+                                        <!-- <a [routerLink]="['/login']" routerLinkActive="active" class="checkout__header-link">
+                                            <i class="fas fa-user-circle"></i>
+                                            <span>Đăng nhập</span>
+                                        </a> -->
+                                    </div>
+                                    <div class="checkout__section-content">
+                                        <form class="checkout__form">
+                                            <div class="checkout__form-item">
+                                                <input type="text" class="checkout__item-input" placeholder="Họ và tên">
+                                            </div>
+                                            <div class="checkout__form-item">
+                                                <input type="text" class="checkout__item-input" placeholder="Địa chỉ (tùy chọn)">
+                                            </div>
+                                            <div class="checkout__form-item">
+                                                <input type="text" class="checkout__item-input" placeholder="Số điện thoại">
+                                            </div>
+                                            <div class="checkout__form-item">
+                                                <input type="text" class="checkout__item-input" placeholder="Email">
+                                            </div>
+                                            <div class="checkout__form-item">
+                                                <label for="" class="checkout__form-label">Tỉnh thành</label>
+                                                <select class="checkout__form-selected">
+                                                    <option value="" class="checkout__form-option">---</option>
+                                                    <option value="" class="checkout__form-option">Hồ Chí Mính</option>
+                                                    <option value="" class="checkout__form-option"></option>
+                                                    <option value="" class="checkout__form-option"></option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <div class="checkout__fieldset">
+                                            <label for="note" class="checkout__field-label">Ghi chú (tùy chọn)</label>
+                                            <textarea name="note" id="note" type="text" data-bind="note" class="checkout__field-note "></textarea>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col l-6 m-6 c-6 ">
+                                <div class="checkout__right">
+                                    <div class="checkout__delivery">
+                                        <div class="checkout__section-header">
+                                            <span class="checkout__header-name">Vận chuyển</span>
+                                        </div>
+                                        <div class="checkout__section-content">
+                                            <div class="checkout__content-box">
+                                                <span class="checkout__info">Vui lòng nhập thông tin giao hàng</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkout__payment">
+                                        <div class="checkout__section-header">
+                                            <span class="checkout__header-name">Thanh toán</span>
+                                        </div>
+                                        <div class="checkout__section-content">
+                                            <div class="checkout__wrapper">
+                                                <div class="checkout__radio">
+                                                    <input type="radio" class="checkout__radio-input">
+                                                </div>
+                                                <span class="checkout__label-primary">
+                                                    Thanh toán khi giao hàng (COD)</span>
+                                                <span class="checkout__label-accessory">
+                                                    <i class="checkout__label-icon far fa-money-bill-alt"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div class="col l-4 m-4 c-12 ">
+                <aside class="checkout__sidebar ">
+                    <div class="checkout__sidebar-header">
+                        <h2 class="checkout__sidebar-title">Đơn hàng ({{cartData.data[0].numInCart!==0 ? cartData.data.length : 0}} sản phẩm)</h2>
+                    </div>
+                    <div class="checkout__sidebar-content">
+                        <div class="checkout__product">
+                            <div class="checkout__product-content" *ngFor="let c of cartData.data">
+                                <div class="checkout__product-img">
+                                    <div class="checkout__product-thumbnail">
+                                        <img src="./assets/img_products/{{c.product.hinhsp}}" alt="{{c.product.tensp}}" class="product__thumbnail-img" />
+                                    </div>
+                                    <span class="checkout__product-qty">{{c.numInCart}}</span>
+                                </div>
+                                <div class="checkout__product-name">
+                                    <h3 class="checkout__product-heading">{{c.product.tensp}}
+                                    </h3>
+                                    <!-- <p class="checkout__product-size">42</p> -->
+                                </div>
+                                <div class="checkout__product-price">
+                                    <span class="checkout__price-current">{{(c.product.dongiamoi * c.numInCart) |
+                                        price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <input type="text" class="checkout__field-input" placeholder="Nhập mã giảm giá" />
+                            <button class="btn checkout__input-btn">Áp dụng</button>
+                        </div>
+                        <div class="checkout__order">
+                            <div class="checkout__order-content">
+                                <div class="checkout__box">
+                                    <span class="checkout__subtotal-name">Tạm tính</span>
+                                    <span class="checkout__subtotal-price">{{cartTotal | price}}</span>
+                                </div>
+                                <div class="checkout__box">
+                                    <span class="shipping__fee-name">Phí vận chuyển</span>
+                                    <span class="shipping__fee-price">Miễn phí</span>
+                                </div>
+                            </div>
+                            <div class="checkout__box">
+                                <span class="checkout__total-name">Tổng cộng</span>
+                                <span class="checkout__total-price">{{cartTotal | price}}</span>
+                            </div>
+                        </div>
+                        <div class="checkout__footer">
+                            <a [routerLink]="['/cart']" routerLinkActive="active" class="checkout__previous-link">
+                                <i class="checkout__previous-icon fas fa-chevron-left"></i>
+                                <span class="checkout__back-home">Quay về giỏ hàng</span>
+                            </a>
+                            <button class="btn checkout__order-btn" (click)="onCheckout()" [disabled]="cartTotal <= 0">Đặt hàng</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ngx-spinner bdColor="rgba(151,149,149,0.4)" size="large" color="orange" type="ball-clip-rotate-pulse">
+    <p style=" font-size: 20px; color: black ">Đang đặt hàng...</p>
+</ngx-spinner> -->

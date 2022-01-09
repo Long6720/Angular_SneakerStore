@@ -1,0 +1,445 @@
+<!-- Background -->
+<div class="bg__container">
+    <swiper class="swiper-container">
+        <div class="swiper-slide">
+            <img src="./assets/img/banner_jordan.png" alt="" class="bg__img" />
+        </div>
+        <div class="swiper-slide">
+            <img src="./assets/img/banner_yeezy-350.png" alt="" class="bg__img" />
+        </div>
+        <div class="swiper-slide">
+            <img src="./assets/img/banner_vans.png" alt="" class="bg__img" />
+        </div>
+        <div class="swiper-slide">
+            <img src="./assets/img/banner_converse.png" alt="" class="bg__img" />
+        </div>
+        <div class="swiper-slide">
+            <img src="./assets/img/banner_yeezy-700.png" alt="" class="bg__img" />
+        </div>
+    </swiper>
+</div>
+<!-- Category -->
+<div class="category">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-12 m-12 c-12">
+                <div class="grid wide ">
+                    <div class="row no-gutters category__list">
+                        <div class="col l-2 m-2 c-4" *ngFor="let p of productOT">
+                            <div class="category__item">
+                                <a [routerLink]="['/product/loaisp', p.tenlsp]" routerLinkActive="router-link-active" class="category__item-link">
+                                    <div class="category__picture">
+                                        <img src="./assets/img/{{p.hinhlsp}}" alt="{{p.tenlsp}}" class="category__img" />
+                                    </div>
+                                    <div class="category__title">
+                                        <h3 class="category__heading">{{p.tenlsp}}</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popular Container -->
+<div class="popular__container">
+    <div class="grid wide">
+        <div class="row popular__content">
+            <div class="col l-12 m-12 c-12">
+                <div class="grid wide">
+                    <div class="popular">
+                        <div class="popular__title">
+                            <h2 class="popular__heading">Sản phẩm phổ biến</h2>
+                        </div>
+                        <div class="home__popular-tabs">
+                            <ul class="home__popular-tabs-list">
+                                <li class="home__popular-tabs-item " *ngFor="let tabs of popular; let i = index" [class.home__popular-tabs-item--active]="tabs === tabs.tensppb">
+                                    <a (click)="selectProductPopular(tabs.tensppb)" routerLinkActive="active" class="home__popular-tabs-link ">{{tabs.tensppb}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div *ngIf="popularList; else other">
+                            <div class="home__popular-content ">
+                                <div class="row ">
+                                    <div class="col l-3 m-3 c-6 " *ngFor="let popular of popularList ">
+                                        <div class="product__box ">
+                                            <div class="product__box-thumbnail ">
+                                                <div class="sale__flash ">
+                                                    <span class="sale__flash-percent ">-{{popular.giamgia}}%</span>
+                                                </div>
+                                                <div class="product__new">
+                                                    <span class="product__new-title">{{popular.tensppb}}</span>
+                                                </div>
+                                                <div class="product__box-btn ">
+                                                    <button type="button " class="product__btn " (click)="selectProduct(popular.masp)">
+                                                        <i class="product__btn-icon fas fa-info "></i>
+                                                    </button>
+                                                    <button type="button " class="product__btn product__btn--m-top ">
+                                                        <i class="product__btn-icon far fa-heart "></i>
+                                                    </button>
+                                                </div>
+                                                <a (click)="selectProduct(popular.masp)" class="product__find-out ">
+                                                    <img src="./assets/img_products/{{popular.hinhsp}} " alt=" " class="product__img " />
+                                                </a>
+                                                <a (click)="selectProduct(popular.masp)" class="product__find-in ">
+                                                    <img src="./assets/img_products/{{popular.hinhsp2}} " alt=" " class="product__img " />
+                                                </a>
+                                            </div>
+                                            <div class="product__info ">
+                                                <h3 class="product__name ">
+                                                    <a (click)="selectProduct(popular.masp)" class="product__name-link ">
+                                                        {{popular.tensp}}
+                                                    </a>
+                                                </h3>
+                                                <div class="product-item__price ">
+                                                    <div class="product-item__price-current ">
+                                                        {{popular.dongiamoi | price}}
+                                                    </div>
+                                                    <div class="product-item__price-old ">
+                                                        {{popular.dongiacu | price}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-template #other>
+                            <div class="home__popular-content">
+                                <div class="row">
+                                    <div class="col l-3 m-3 c-6" *ngFor="let product of productList">
+                                        <div class="product__box">
+                                            <div class="product__box-thumbnail">
+                                                <div class="sale__flash">
+                                                    <span class="sale__flash-percent">-{{product.giamgia}}%</span>
+                                                </div>
+                                                <div class="product__box-btn">
+                                                    <button type="button" class="product__btn" (click)="selectProduct(product.masp)">
+                                                        <i class="product__btn-icon fas fa-info"></i>
+                                                    </button>
+                                                    <button type="button" class="product__btn product__btn--m-top">
+                                                        <i class="product__btn-icon far fa-heart"></i>
+                                                    </button>
+                                                </div>
+                                                <a (click)="selectProduct(product.masp)" class="product__find-out">
+                                                    <img src="./assets/img_products/{{product.hinhsp}}" alt="" class="product__img" />
+                                                </a>
+                                                <a (click)="selectProduct(product.masp)" class="product__find-in">
+                                                    <img src="./assets/img_products/{{product.hinhsp2}}" alt="" class="product__img" />
+                                                </a>
+                                            </div>
+                                            <div class="product__info">
+                                                <h3 class="product__name">
+                                                    <a (click)="selectProduct(product.masp)" class="product__name-link">
+                                                        {{product.tensp}}
+                                                    </a>
+                                                </h3>
+                                                <div class="product-item__price">
+                                                    <div class="product-item__price-current">
+                                                        {{product.dongiamoi | price}}
+                                                    </div>
+                                                    <div class="product-item__price-old">
+                                                        {{product.dongiacu | price}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FeedBack & animation-->
+<div class="feedback__container ">
+    <div class="feedback__img " style="background: url( './assets/img/slider_1.png') center center no-repeat; ">
+        <div class="grid wide ">
+            <div class="row ">
+                <div class="col l-12 m-12 c-12 ">
+                    <div class="feedback__content ">
+                        <h2 class="feedback__title ">
+                            <span>
+                                <span class="feedback__heading ">Khách hàng nói gì</span> về Sneaker store
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12 ">
+                    <swiper class="swiper-container ">
+                        <div class="swiper-slide ">
+                            <div class="feedback__customer ">
+                                <div class="feedback__quote "></div>
+                                <div class="feedback__customer-avatar ">
+                                    <img src="./assets/img/customer_1.jpg " alt="Khách hàng " class="feedback__customer-img ">
+                                </div>
+                                <h3 class="feedback__customer-name ">Pack Ji Jun</h3>
+                                <div class="feedback__customer-cmt ">
+                                    "Giày đẹp lắm ạ! Mình sẽ ủng hộ lâu dài. "
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="feedback__customer ">
+                                <div class="feedback__quote "></div>
+                                <div class="feedback__customer-avatar ">
+                                    <img src="./assets/img/customer_2.jpg " alt="Khách hàng " class="feedback__customer-img ">
+                                </div>
+                                <h3 class="feedback__customer-name ">Michael V</h3>
+                                <div class="feedback__customer-cmt ">
+                                    "Chất lượng giày xuất sắc, mang vào êm chân lắm. "
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="feedback__customer ">
+                                <div class="feedback__quote "></div>
+                                <div class="feedback__customer-avatar ">
+                                    <img src="./assets/img/customer_3.jpg " alt="Khách hàng " class="feedback__customer-img ">
+                                </div>
+                                <h3 class="feedback__customer-name ">Kim SoeK-Jin</h3>
+                                <div class="feedback__customer-cmt ">
+                                    "Giá cả hợp lý, ông chủ dễ thương và hài hước lắm! "
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="feedback__customer ">
+                                <div class="feedback__quote "></div>
+                                <div class="feedback__customer-avatar ">
+                                    <img src="./assets/img/customer_4.jpg " alt="Khách hàng " class="feedback__customer-img ">
+                                </div>
+                                <h3 class="feedback__customer-name ">Jung Kook</h3>
+                                <div class="feedback__customer-cmt ">
+                                    "Giày đỉnh quá mang vào vừa chân lắm. Mình sẽ luôn mua giày của sneakerstore. "
+                                </div>
+                            </div>
+                        </div>
+                    </swiper>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service -->
+<div class="service__container ">
+    <div class="grid fluid ">
+        <div class="row ">
+            <div class="col l-3 m-3 c-6 ">
+                <div class="service__box ">
+                    <div class="service__box-item ">
+                        <img src="./assets/img/shipping.png " alt="Giao hàng miễn phí " class="service__box-img ">
+                    </div>
+                    <div class="service__box-detail ">
+                        <h3 class="service__box-title ">Giao hàng miễn phí</h3>
+                        <p class="service__box-desc ">Miễn phí nội thành</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-3 m-3 c-6 ">
+                <div class="service__box ">
+                    <div class="service__box-item ">
+                        <img src="./assets/img/unbox.png " alt="Kiểm tra hàng khi nhận " class="service__box-img ">
+                    </div>
+                    <div class="service__box-detail ">
+                        <h3 class="service__box-title ">Kiểm tra hàng khi nhận</h3>
+                        <p class="service__box-desc ">Hoàn toàn miễn phí</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-3 m-3 c-6 ">
+                <div class="service__box ">
+                    <div class="service__box-item ">
+                        <img src="./assets/img/return.png " alt="Đổi trả 07 ngày " class="service__box-img ">
+                    </div>
+                    <div class="service__box-detail ">
+                        <h3 class="service__box-title ">Đổi trả 07 ngày</h3>
+                        <p class="service__box-desc ">Hoàn toàn miễn phí</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-3 m-3 c-6 ">
+                <div class="service__box service__box--no-border ">
+                    <div class="service__box-item ">
+                        <img src="./assets/img/trystore.png " alt="Thử ngay tại store " class="service__box-img ">
+                    </div>
+                    <div class="service__box-detail ">
+                        <h3 class="service__box-title ">Thử ngay tại store</h3>
+                        <p class="service__box-desc ">1 store tại HCM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Special Container-->
+<div class="special__container ">
+    <div class="grid wide ">
+        <div class="row popular__content ">
+            <div class="col l-12 m-12 c-12 ">
+                <div class="popular ">
+                    <div class="popular__title ">
+                        <h2 class="popular__heading ">Sản phẩm đặc biệt</h2>
+                    </div>
+                    <div class="home__popular-content ">
+                        <div class="row ">
+                            <div class="col l-3 m-3 c-6 " *ngFor="let specials of productSpecials ">
+                                <div class="product__box ">
+                                    <div class="product__box-thumbnail ">
+                                        <div class="sale__flash ">
+                                            <span class="sale__flash-percent ">-{{specials.giamgia}}%</span>
+                                        </div>
+                                        <div class="product__new" *ngIf="specials.tensppb == 'Đặc biệt'">
+                                            <span class="product__new-title">{{specials.tensppb}}</span>
+                                        </div>
+                                        <div class="product__box-btn ">
+                                            <button type="button " class="product__btn " (click)="selectProduct(specials.masp)">
+                                                <i class="product__btn-icon fas fa-info "></i>
+                                            </button>
+                                            <button type="button " class="product__btn product__btn--m-top ">
+                                                <i class="product__btn-icon far fa-heart "></i>
+                                            </button>
+                                        </div>
+                                        <a (click)="selectProduct(specials.masp)" class="product__find-out ">
+                                            <img src="./assets/img_products/{{specials.hinhsp}} " alt=" " class="product__img " />
+                                        </a>
+                                        <a (click)="selectProduct(specials.masp)" class="product__find-in ">
+                                            <img src="./assets/img_products/{{specials.hinhsp2}} " alt=" " class="product__img " />
+                                        </a>
+                                    </div>
+                                    <div class="product__info ">
+                                        <h3 class="product__name ">
+                                            <a (click)="selectProduct(specials.masp)" class="product__name-link ">
+                                                {{specials.tensp}}
+                                            </a>
+                                        </h3>
+                                        <div class="product-item__price ">
+                                            <div class="product-item__price-current ">
+                                                {{specials.dongiamoi | price}}
+                                            </div>
+                                            <div class="product-item__price-old ">
+                                                {{specials.dongiacu | price}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Post -->
+<div class="post__container ">
+    <div class="grid wide ">
+        <div class="row ">
+            <div class="col l-12 m-12 c-0 ">
+                <div class="post__box ">
+                    <div class="post__title ">
+                        <h2 class="post__heading ">Tin tức giày & dép</h2>
+                    </div>
+                    <div class="post__blog ">
+                        <div class="row ">
+                            <div class="col l-4 m-4 c-0 ">
+                                <a class="post__inner ">
+                                    <div class="post__item ">
+                                        <img src="./assets/img/post__sneakers-1.jpg " alt=" " class="post__item-img " />
+                                        <div class="post__item-hover "></div>
+                                    </div>
+                                    <div class="post__info ">
+                                        <h3 class="post__info-heading ">MLB Korea Low-Top Sneakers Màu Trắng-Logo Boston Đỏ
+                                        </h3>
+                                        <span class="post__time ">
+                                            <span class="post__time-date "><i class="far fa-calendar "></i>
+                                                16/04/2021</span>
+                                        </span>
+                                        <span class="post__author ">
+                                            Đăng bởi:
+                                            <span class="post__author-ad ">sneakerstore</span>
+                                        </span>
+
+                                    </div>
+                                    <div class="post__content-summary ">
+                                        <p class="post__content ">
+                                            MLB là tên viết tắt của Major League Baseball – tổ chức thể thao chuyên nghiệp của môn bóng chày. Thương hiệu MLB thuộc tập đoàn F&F đã mở cửa hàng MLB Korea đầu tiên vào năm 1997 - đây cũng là mô hình kinh doanh đầu tiên ra mắt MLB như một thương hiệu
+                                            thời trang theo phong cách thường ngày. Cho đến nay, MLB đã có 250 cửa hàng tại khắp khu vực Châu Á như Hàn Quốc, HongKong, Ma Cao, Đài Loan, Trung Quốc và Vietnam. MLB lấy cảm hứng từ sự pha trộn giữa thể thao,
+                                            thời trang đường phố và văn hóa. Thương hiệu chuyên thiết kế và sản xuất trang phục, giày & phụ kiện cho nam, nữ lấy cảm hứng từ logo của những đội bóng chày danh tiếng đem đến những bộ sưu tập là sự kết hợp
+                                            giữa tiện ích và thời trang.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col l-4 m-4 c-0 ">
+                                <a class="post__inner ">
+                                    <div class="post__item ">
+                                        <img src="./assets/img/post__sneakers-2.jpg " alt=" " class="post__item-img " />
+                                        <div class="post__item-hover "></div>
+                                    </div>
+                                    <div class="post__info ">
+                                        <h3 class="post__info-heading ">Giày Jordan 1 Dior giá bao nhiêu? Mua ở đâu để được chất lượng đảm bảo?
+                                        </h3>
+                                        <span class="post__time ">
+                                            <span class="post__time-date "><i class="far fa-calendar "></i>
+                                                16/08/2020</span>
+                                        </span>
+                                        <span class="post__author ">
+                                            Đăng bởi:
+                                            <span class="post__author-ad ">sneakerstore</span>
+                                        </span>
+
+                                    </div>
+                                    <div class="post__content-summary ">
+                                        <p class="post__content ">
+                                            Jordan 1 Dior là một trong những siêu phẩm mà khiến bao người phải đứng ngồi không yên bởi sự thiết kế có 1 không 2 của nhà Jordan kết hợp với Dior. Jordan Dior có rất nhiều sự lựa chọn cho các bạn đấy nhé! Jordan Dior High và Jordan Dior Low sẽ là những
+                                            lựa chọn an toàn cho cả bạn nam lẫn bạn nữ. Vẫn mang vẻ thiết kế cổ điển của các đôi giày Jordan trước đó nhưng khi được collab với Dior thì siêu phẩm này lại được nâng cao thêm một bật nữa. Màu sắc, sự phối
+                                            màu, các chi tiết nhỏ trên Jordan 1 Dior đều thể hiện sự tinh tế, tỉ mỉ và sang trọng. Tại DQshop thì Jordan Dior rep 1:1 đang là top đầu những đôi giày bán chạy nhất đấy! Hãy cùng tìm hiểu xem giá thành hiện
+                                            tại của một em siêu phẩm Jordan 1 Dior rep 1:1 là bao nhiêu nhé.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col l-4 m-4 c-0 ">
+                                <a class="post__inner ">
+                                    <div class="post__item ">
+                                        <img src="./assets/img/post__sneakers-3.jpg " alt=" " class="post__item-img " />
+                                        <div class="post__item-hover "></div>
+                                    </div>
+                                    <div class="post__info ">
+                                        <h3 class="post__info-heading ">Lý do gì khiến Adidas Yeezy 700 V3 Azael trở nên đặc biệt?
+                                        </h3>
+                                        <span class="post__time ">
+                                            <span class="post__time-date "><i class="far fa-calendar "></i>
+                                                26/09/2020</span>
+                                        </span>
+                                        <span class="post__author ">
+                                            Đăng bởi:
+                                            <span class="post__author-ad ">sneakerstore</span>
+                                        </span>
+
+                                    </div>
+                                    <div class="post__content-summary ">
+                                        <p class="post__content ">
+                                            Yeezy 700 là một trong những đôi giày thể thao Kanye West x adidas phổ biến nhất còn tồn tại, và bây giờ, Yeezy 700 V3 Azael cuối cùng cũng đã xuất hiện. Một đôi giày đã đặt nền móng cho xu hướng chunky sneaker. Được sơn bằng màu 'Azael', chiếc giày này
+                                            được thiết kế và tạo ra bởi Phó Chủ tịch kiêm Giám đốc Sáng tạo của adidas, Mark Miner, người trước đây đã làm việc tại Nike cho đến năm 2014. Được tạo hình chủ yếu với màu trắng, phần trên được chế tác từ bọt
+                                            và kết cấu lưới giúp phát sáng trong điều kiện ánh sáng yếu. Các chi tiết màu đen tương phản chạm vào lưỡi gà và đường viền cùng với mặt trước của giày được trang bị một tấm da lộn, đóng vai trò là điểm thu
+                                            hút của 700 V3 Azael. Khá thú vị, chiếc 700 này là chiếc đầu tiên không có công nghệ Boost của adidas trong đế giữa của nó. Mặc dù chưa có gì được xác nhận 100%, nhưng thật an toàn khi cho rằng đệm adiPRENE
+                                            sẽ được sử dụng thay thế cho nó. Điều này không có gì đáng ngạc nhiên khi xem xét mức độ phổ biến của nó trên Yeezy 500.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sneaker store</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="./assets/js/jquery-3.4.1.js"></script>
+    <script src="./assets/js/jquery.js "></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            //hiểu ứng quay về đầu trang (khi kéo xuống sẽ có 1 nút bên tay phải)
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 200) $(".footer__back-top").fadeIn();
+                else $(".footer__back-top").fadeOut();
+            });
+            $(".footer__back-top").click(function() {
+                $("body,html").animate({
+                    scrollTop: 0
+                }, "slow");
+            });
+        });
+    </script>
+    <app-root></app-root>
+
+</body>
+
+</html>

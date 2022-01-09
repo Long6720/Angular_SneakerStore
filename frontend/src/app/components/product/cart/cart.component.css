@@ -1,0 +1,249 @@
+.cart__header {
+    padding: 20px 0 6px;
+}
+
+.cart__header-items {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 18px;
+}
+
+.cart__header-item {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500
+}
+
+.cart__shoptify {
+    margin-top: 18px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 16px;
+}
+
+.cart__shoptify--align-center {
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+.cart__shoptify-items {
+    padding-top: 12px;
+}
+
+.cart__shoptify-info {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+.cart__info-img {
+    width: 168px;
+    height: 140px;
+}
+
+.cart__info-title {
+    margin-left: 10px;
+}
+
+.cart__info-heading {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.cart__info-size {
+    color: var(--color-border);
+}
+
+.cart__remove-item {
+    cursor: pointer;
+}
+
+.cart__remove-icon {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.cart__remove-item:hover .cart__remove-icon {
+    color: var(--color-border);
+}
+
+.cart__shoptify-price {
+    text-align: center;
+}
+
+.cart__shoptify-money {
+    color: #555;
+    font-size: 1.6rem;
+}
+
+.cart__shoptify-quantity {
+    border-radius: 40px;
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    border: 1px solid #222;
+    background-color: var(--white-color);
+}
+
+.cart__shoptify-input {
+    height: 38px;
+    width: 30px;
+    line-height: 3.8rem;
+    text-align: center;
+    border: none;
+    background-color: var(--white-color);
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.cart__shoptify-count {
+    height: 40px;
+    width: 30px;
+    line-height: 4rem;
+    border: none;
+}
+
+.cart__shoptify-subtotal {
+    color: #555;
+    font-size: 1.6rem;
+}
+
+.cart__header-item--center {
+    text-align: center;
+}
+
+.cart__shoptify-item--justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart__shoptify-item--justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Cart footer */
+
+.cart__footer {
+    margin: 30px 0;
+}
+
+.cart__footer-right {
+    border: 1px solid #ebebeb;
+    padding: 0 20px;
+    margin-bottom: 18px;
+}
+
+.cart__summary {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.cart__summary-subtotal {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.cart__summary-shipping {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.cart__summary-total {
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.cart__summary-price {
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+.cart__summary--border {
+    border-top: 1px solid #ccc;
+}
+
+.cart__note-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+.cart__note-input {
+    min-width: 600px;
+    min-height: 116px;
+    font-size: 1.4rem;
+    padding: 6px 10px;
+    border-color: #ccc;
+    outline: none;
+}
+
+
+/* Cart button */
+
+.cart__footer-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Cart no product */
+
+.cart__header--empty {
+    padding: 20px 0 6px;
+    height: 300px;
+}
+
+.cart__shoptify--empty {
+    margin-top: 70px;
+}
+
+.cart__empty {
+    font-size: 2.8rem;
+    color: var(--text-color);
+    text-align: center;
+    display: block;
+    margin-bottom: 32px;
+}
+
+.cart__back-link {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.cart__back-link:hover .cart__back-home {
+    color: rgba(64, 147, 189, 0.9);
+}
+
+.cart__back-link:hover .cart__previous-icon {
+    transform: translateX(-3px);
+}
+
+.cart__previous-icon {
+    font-size: 1.6rem;
+    display: inline-block;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    margin-right: 4px;
+}
+
+@media (max-width: 739px) {
+    .cart__note-input {
+        min-width: 482px;
+    }
+    .cart__shoptify-item--justify-end {
+        justify-content: center;
+    }
+    .cart__shoptify-item {
+        margin: 14px;
+    }
+}

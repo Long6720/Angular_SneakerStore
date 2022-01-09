@@ -1,0 +1,80 @@
+<div class="form">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-6 m-6 c-12 form__content">
+                <h3 class="form__name">Tạo tài khoản</h3>
+                <form class="form__info" [formGroup]="registerForm">
+                    <div class="form__group">
+                        <label class="form__label">Họ và tên <span class="form__required">*</span></label>
+                        <input type="text" class="form__input" formControlName="tennd" placeholder="Họ và tên">
+                        <div class="form__invalid-feedback" *ngIf="formControls.tennd.invalid && (formControls.tennd.touched || submitted) && formControls.tennd.errors">
+                            <span *ngIf="formControls.tennd.errors.required" class="form__error">Bạn chưa nhập họ
+                                tên</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Địa chỉ <span class="form__required">*</span></label>
+                        <input type="text" class="form__input" formControlName="diachi" placeholder="Địa chỉ">
+                        <div class="form__invalid-feedback" *ngIf="formControls.diachi.invalid && (formControls.diachi.touched || submitted) && formControls.diachi.errors">
+                            <span *ngIf="formControls.diachi.errors.required" class="form__error">Bạn chưa nhập
+                                địa chỉ</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Số điện thoại <span class="form__required">*</span></label>
+                        <input type="text" class="form__input" formControlName="sdt" placeholder="Số điện thoại">
+                        <div class="form__invalid-feedback" *ngIf="formControls.sdt.invalid && (formControls.sdt.touched || submitted) && formControls.sdt.errors">
+                            <span *ngIf="formControls.sdt.errors.required" class="form__error">Bạn chưa nhập
+                                số điện thoại</span>
+                            <span *ngIf="formControls.sdt.errors.pattern" class="form__error">Chỉ nhập
+                                số</span>
+                            <span *ngIf="formControls.sdt.errors.minlength" class="form__error">Số điện thoại phải có ít
+                                nhất 10 số</span>
+                            <span *ngIf="formControls.sdt.errors.maxlength" class="form__error">Số điện thoại tối đa là
+                                11 số</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Email <span class="form__required">*</span></label>
+                        <input type="email" class="form__input" formControlName="email" placeholder="myEmail@gmail.com">
+                        <div class="form__invalid-feedback" *ngIf="formControls.email.invalid && (formControls.email.touched || submitted) && formControls.email.errors">
+                            <span *ngIf="formControls.email.errors.required" class="form__error">Bạn chưa nhập
+                                email</span>
+                            <span *ngIf="formControls.email.errors.pattern" class="form__error">Nhập đúng địa chỉ
+                                mail</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Mật khẩu <span class="form__required">*</span></label>
+                        <input type="password" class="form__input" formControlName="matkhau" placeholder="Mật khẩu">
+                        <div class="form__invalid-feedback" *ngIf="formControls.matkhau.invalid && (formControls.matkhau.touched || submitted) && formControls.matkhau.errors">
+                            <span *ngIf="formControls.matkhau.errors.required" class="form__error">Bạn chưa nhập
+                                mật khẩu</span>
+                            <span *ngIf="formControls.matkhau.errors.minlength" class="form__error ">Mật khẩu phải
+                                có ít nhất 9 kí tự</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Xác nhận lại mật khẩu <span class="form__required">*</span></label>
+                        <input type="password" class="form__input" formControlName="confirmPassword" placeholder="Xác nhận lại mật khẩu">
+                        <div class="form__invalid-feedback" *ngIf="formControls.confirmPassword.invalid && (formControls.confirmPassword.touched || submitted) && formControls.confirmPassword.errors">
+                            <span *ngIf="formControls.confirmPassword.errors.required" class="form__error">Bạn chưa xác
+                                nhận mật khẩu</span>
+                            <span *ngIf="formControls.confirmPassword.errors.mustMatch" class="form__error">Mật khẩu xác
+                                nhận
+                                không trùng khớp</span>
+                        </div>
+                    </div>
+                    <div class="form__btn ">
+                        <button type="submit " (click)="onSubmit()" [disabled]="(registerForm.invalid || registerForm.pending) && (registerForm.touched || submitted) " class="btn btn-user ">Đăng ký</button>
+                    </div>
+                    <div class="form__account ">
+                        <span class="form__account-title ">Bạn đã có tài khoản?</span>
+                        <a [routerLink]="[ 'auth/login'] " routerLinkActive="active " class="form__account-link ">Đăng
+                            nhập</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+.thankyou {
+    margin-top: 50px;
+}
+
+.thankyou__content {
+    text-align: center;
+    border: 1px solid #555;
+    padding: 10px 0 30px;
+}
+
+.thankyou__title {
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--color-border);
+}
+
+.thankyou__title-icon {
+    color: red;
+}
+
+.thankyou__back-link {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.thankyou__back-link:hover .thankyou__back-home {
+    color: rgba(64, 147, 189, 0.9);
+}
+
+.thankyou__back-link:hover .thankyou__previous-icon {
+    transform: translateX(-3px);
+}
+
+.thankyou__previous-icon {
+    font-size: 1.6rem;
+    display: inline-block;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    margin-right: 4px;
+}
+
+
+/* Thankyou order */
+
+.thankyou__header {
+    margin-top: 20px;
+    padding: 20px 0 6px;
+}
+
+.thankyou__header-items {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 18px;
+}
+
+.thankyou__header-item {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500
+}
+
+.thankyou__order {
+    margin-top: 18px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 16px;
+}
+
+.thankyou__order--align-center {
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+.thankyou__order-items {
+    padding-top: 12px;
+}
+
+.thankyou__order-info {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+.thankyou__info-img {
+    width: 168px;
+    height: 140px;
+}
+
+.thankyou__info-title {
+    margin-left: 10px;
+}
+
+.thankyou__info-heading {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.thankyou__order-price {
+    text-align: center;
+}
+
+.thankyou__order-money {
+    color: #555;
+    font-size: 1.6rem;
+}
+
+.thankyou__order-quantity {
+    font-size: 1.6rem;
+    color: #555;
+}
+
+.thankyou__order-total {
+    color: #555;
+    font-size: 1.6rem;
+}
+
+.thankyou__header-item--center {
+    text-align: center;
+}
+
+.thankyou__order-item--justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.thankyou__order-item--justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Thankyou */
+
+.thankyou__footer {
+    margin: 30px 0;
+}
+
+.thankyou__footer-center {
+    border: 1px solid #cfcfcf;
+    padding: 10px 20px;
+    margin-bottom: 18px;
+}
+
+.thankyou__footer--mg-auto {
+    margin: auto;
+}
+
+.thankyou__summary {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.thankyou__summary-total {
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.thankyou__summary-price {
+    margin-left: auto;
+    font-size: 1.5rem;
+}

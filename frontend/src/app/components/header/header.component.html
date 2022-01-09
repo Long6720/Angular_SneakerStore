@@ -1,0 +1,134 @@
+<!-- Header -->
+<header class="header header--sticky-top">
+    <div class="grid wide">
+        <nav class="header__navbar">
+            <div class="header__menu">
+                <label for="mobile-menu-checkbox" class="header__menu-btn">
+                    <i class="header__menu-btn-icon fas fa-bars"></i>
+                </label>
+                <input type="checkbox" hidden id="mobile-menu-checkbox" class="header__menu-input">
+
+                <label for="mobile-menu-checkbox" class="header__menu-overlay"></label>
+                <!-- Mobile navbar -->
+                <ul class="header__menu-list">
+                    <div class="header__menu-navigation">
+                        <label for="mobile-menu-checkbox">
+                            <i class="header__menu-icon fas fa-times">
+                            </i>
+                        </label>
+                        <h3 class="header__menu-name">Danh mục sản phẩm</h3>
+                    </div>
+                    <li class="header__menu-item" *ngFor="let prods of productOT">
+                        <a (click)="selectProductOfType(prods.tenlsp)" class="header__menu-item-link">{{prods.tenlsp}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header__logo">
+                <a routerLink="/" class="header__logo-link">
+                    <img src="./assets/img/logo_sneaker_design.png" alt="Logo Sneaker store" class="header__logo-img">
+                </a>
+            </div>
+
+            <ul class="header__navbar-list hidden-on-mobile">
+                <li class="header__navbar-item " *ngFor="let prods of productOT">
+                    <a (click)="selectProductOfType(prods.tenlsp)" class="header__navbar-link">{{prods.tenlsp}}</a>
+                </li>
+            </ul>
+
+            <ul class="header__navbar-list header__navbar-list--m-left">
+                <!-- Sign in / Sign up -->
+                <li class="header__navbar-item">
+                    <div class="account__inner">
+                        <a href="" class="header__navbar-link">
+                            <i class="header__navbar-icon fas fa-user"></i>
+                        </a>
+                        <div class="account__item">
+                            <div *ngIf="!userData; else hasUser ">
+                                <a [routerLink]="[ 'auth/login'] " routerLinkActive="active " class="account__item-link ">Đăng
+                                    nhập</a>
+                                <a [routerLink]="[ 'auth/register'] " routerLinkActive="active " class="account__item-link ">Đăng ký</a>
+                            </div>
+                            <ng-template #hasUser>
+                                <a [routerLink]="['/admin']" routerLinkActive="active" class="account__item-link--no-hover" *ngIf="userData.email === 'admin@gmail.com'">Admin</a>
+                                <a class="account__item-link--no-hover">{{userData.email}}</a>
+                                <a class="account__item-link " (click)="auth.logoutUser()">Đăng xuất</a>
+                            </ng-template>
+
+                        </div>
+                    </div>
+                </li>
+                <!-- Like -->
+                <li class="header__navbar-item ">
+                    <div class="header__navbar-wrap ">
+                        <a href=" " class="header__navbar-link ">
+                            <i class="fas fa-heart "></i>
+                            <span class="header__navbar-notice ">0</span>
+                        </a>
+                    </div>
+                </li>
+                <!-- Cart -->
+                <li class="header__navbar-item ">
+                    <div class="header__navbar-wrap ">
+                        <a [routerLink]="[ '/cart'] " routerLinkActive="active " class="header__navbar-link ">
+                            <i class="fas fa-shopping-cart "></i>
+                            <span class="header__navbar-notice ">{{cartData.data[0].numInCart!==0 ? cartData.data.length
+                                : 0}}</span>
+                        </a>
+                        <div class="header__cart-content ">
+                            <!-- No product in cart -->
+                            <div class="header__cart-list--no-cart-msg " *ngIf="cartData.data[0].numInCart === 0">
+                                Không có sản phẩm nào trong giỏ hàng
+                            </div>
+                            <!-- Has product in cart -->
+                            <ul class="cart__product-list " *ngIf="cartData.data[0].numInCart !== 0">
+                                <li class="cart__product-item " *ngFor="let c of cartData.data; let i = index ">
+                                    <img src="./assets/img_products/{{c.product.hinhsp}} " alt="{{c.product.tensp}} " class="cart__product-img ">
+                                    <div class="cart__product-info ">
+                                        <div class="cart__product-head ">
+                                            <h5 class="cart__product-heading ">
+                                                {{c.product.tensp}} <span class="cart__product-qty">x
+                                                    {{c.numInCart}}</span>
+                                            </h5>
+                                            <div class="cart__product-price ">
+                                                {{c.product.dongiamoi | price}}
+                                            </div>
+                                        </div>
+                                        <!-- <div class="cart__product-quantity ">
+                                            <button type="button " class="btn__item-count ">
+                                                <i class="btn__count-icon fas fa-minus "></i>
+                                            </button>
+                                            <input type="text " class="cart__product-input " min="1 " value="1 " size="4 " disabled>
+                                            <button type="button " class="btn__item-count ">
+                                                <i class="btn__count-icon fas fa-plus "></i>
+                                            </button>
+                                        </div> -->
+                                        <a (click)="cartService.DeleteProductFromCart(i) " class="remove__cart-item ">
+                                            <i class="remove__cart-icon far fa-trash-alt "></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="cart__product-subtotal ">
+                                Tổng cộng:
+                                <span class="cart__price-subtotal ">{{cartTotal | price}}</span>
+                            </div>
+                            <div class="cart__product-btn ">
+                                <button class="btn btn__primary " [routerLink]="[ '/cart'] " routerLinkActive="active ">Giỏ
+                                    hàng</button>
+                                <button class="btn btn__white ">Thanh toán</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="header__search ">
+                <input type="text " class="header__search-input " placeholder="Tìm kiếm sản phẩm... " />
+                <label for="mobile-search-checkbox " class="header__search-btn ">
+                    <i class="header__search-btn-icon fas fa-search "></i>
+                </label>
+                <input type="checkbox " hidden id="mobile-search-checkbox " class="header__search-checkbox ">
+            </div>
+        </nav>
+    </div>
+</header>

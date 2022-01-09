@@ -1,0 +1,39 @@
+<div class="form">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-6 m-6 c-12 form__content">
+                <h3 class="form__name">Đăng nhập</h3>
+                <form class="form__info" [formGroup]="loginForm">
+                    <div class="form__group">
+                        <label class="form__label">Email <span class="form__required">*</span></label>
+                        <input type="email" class="form__input" formControlName="email" name="email" placeholder="myEmail@gmail.com">
+                        <div class="form__invalid-feedback" *ngIf="formControls.email.invalid && (formControls.email.touched || submitted) && formControls.email.errors">
+                            <span *ngIf="formControls.email.errors.required" class="form__error">Bạn chưa nhập
+                                email</span>
+                            <span *ngIf="formControls.email.errors.pattern" class="form__error">Nhập đúng địa chỉ
+                                mail</span>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label">Mật khẩu <span class="form__required">*</span></label>
+                        <input type="password" class="form__input" formControlName="matkhau" placeholder="Mật khẩu">
+                        <div class="form__invalid-feedback" *ngIf="formControls.matkhau.invalid && (formControls.matkhau.touched || submitted) && formControls.matkhau.errors">
+                            <span *ngIf="formControls.matkhau.errors.required" class="form__error">Bạn chưa nhập
+                                mật khẩu</span>
+                            <span *ngIf="formControls.matkhau.errors.minlength" class="form__error ">Mật khẩu phải
+                                có ít nhất 9 kí tự</span>
+                        </div>
+                    </div>
+                    <div class="form__btn">
+                        <button type="submit" (click)="login()" [disabled]="(loginForm.invalid) && (loginForm.touched || submitted) " class="btn btn-user">Đăng nhập</button>
+                    </div>
+                    <div class="form__account">
+                        <span class="form__account-title">Bạn chưa có tài khoản?</span>
+                        <a [routerLink]="['auth/register']" routerLinkActive="active" class="form__account-link">Đăng
+                            ký</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

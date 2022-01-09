@@ -1,0 +1,278 @@
+<!-- Breadcrumb -->
+<ng-container *ngIf="product">
+    <div class="bread__crumb">
+        <div class="grid wide">
+            <div class="col l-12 m-12 c-12">
+                <ul class="bread__crumb-list">
+                    <li class="bread__crumb-item">
+                        <i class="bread__crumb-icon fas fa-home"></i>
+                        <a [routerLink]="['/']" routerLinkActive="active" class="bread__crumb-item-link">
+                            <span class="bread__crumb-item-home">Trang chủ</span>
+                        </a>
+                        <i class="bread__crumb-icon fa fa-angle-right"></i>
+                    </li>
+                    <li class="bread__crumb-item">
+                        <a [routerLink]="['/product/loaisp',product.tenlsp]" routerLinkActive="active" class="bread__crumb-item-link">
+                            <span class="bread__crumb-item-type">{{product.tenlsp}}</span>
+                        </a>
+                        <i class="bread__crumb-icon fa fa-angle-right"></i>
+                    </li>
+                    <li class="bread__crumb-item bread__crumb-item--mg-left">
+                        <span class="bread__crumb-item-link">
+                            <span class="bread__crumb-item-title">{{product.tensp}}</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Details -->
+    <div class="details">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-8 m-8 c-12">
+                    <div class="details__zoom">
+                        <img src="./assets/img_products/{{product.hinhsp}}" alt="{{product.tensp}}" class="details__zoom-img xzoom">
+                        <div class="details__thumb xzoom-thumb">
+                            <a href="./assets/img_products/{{product.hinhsp}}">
+                                <img src="./assets/img_products/{{product.hinhsp}}" alt="" class="details__gallery xzoom-gallery">
+                            </a>
+                            <a href="./assets/img_products/{{product.hinhsp2}}">
+                                <img src="./assets/img_products/{{product.hinhsp2}}" alt="" class="details__gallery xzoom-gallery">
+                            </a>
+                            <a href="./assets/img_products/{{product.hinhsp3}}">
+                                <img src="./assets/img_products/{{product.hinhsp3}}" alt="" class="details__gallery xzoom-gallery">
+                            </a>
+                            <a href="./assets/img_products/{{product.hinhsp4}}">
+                                <img src="./assets/img_products/{{product.hinhsp4}}" alt="" class="details__gallery xzoom-gallery">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-12">
+                    <div class="details__product">
+                        <h3 class="details__product-name">{{product.tensp}}</h3>
+                        <div class="details__product-price">
+                            <div class="details__product-price-current">{{product.dongiamoi| price}}</div>
+                            <div class="details__product-price-old">{{product.dongiacu | price}}</div>
+                        </div>
+                        <div class="details__product-desc">
+                            <p>- Chất lượng Rep 1:1 Tốt Nhất</p>
+                            <p>- Đi lùi 1 size</p>
+                            <p>- Vận chuyển toàn quốc [ Kiểm Tra Hàng Trước Khi Thanh Toán ]</p>
+                            <p>- 100% Ảnh chụp trực tiếp tại Sneaker store</p>
+                            <p>- Bảo Hành Trọn Đời Sản Phẩm</p>
+                            <p>- Đổi Trả 7 Ngày Không Kể Lí Do</p>
+                            <p>- Liên Hệ : 0967.585.135</p>
+                        </div>
+                        <!-- <div class="details__product-size">
+                            <h4 class="details__product-size-title">Kích thước:</h4>
+                            <div class="details__product-size-list">
+                                <li class="details__product-size-item" *ngFor="let s of size">
+                                    <a class="details__product-size-link">{{s.kichthuoc}}</a>
+                                </li>
+                            </div>
+                        </div> -->
+                        <div class="details__product-btn">
+                            <button class="btn btn__checkout btn__primary" (click)="AddProduct(product.masp)" [disabled]="product.soluong < 1">{{ product.soluong < 1 ? "Hết hàng"
+                                    : "Thêm vào giỏ hàng" }}</button>
+                            <button class="btn btn__checkout btn__primary btn__checkout--left" (click)="BuyNow(product.masp)" [disabled]="product.soluong < 1">{{
+                                        product.soluong < 1 ? "Hết hàng" : "Mua Ngay" }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="product__content-kind">
+                <div class="popular">
+                    <div class="popular-title">
+                        <h2 class="popular-heading">Sản phẩm cùng loại</h2>
+                    </div>
+                    <div class="home__popular-content">
+                        <div class="row">
+                            <div class="col l-3 m-3 c-6 ">
+                                <div class="product__box">
+                                    <div class="product__box-thumbnail ">
+                                        <div class="sale__flash ">
+                                            <span class="sale__flash-percent ">-10%</span>
+                                        </div>
+                                        <div class="product__new ">
+                                            <span class="product__new-title ">Mới</span>
+                                        </div>
+                                        <div class="product__box-btn ">
+                                            <button type="button " class="product__btn ">
+                                                <i class="product__btn-icon fas fa-cart-arrow-down "></i>
+                                            </button>
+                                            <button type="button " class="product__btn product__btn--m-top ">
+                                                <i class="product__btn-icon far fa-heart "></i>
+                                            </button>
+
+                                        </div>
+                                        <a href=" " class="product__find-out ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW'.jpg " alt="Hình 1 " class="product__img " />
+                                        </a>
+                                        <a href=" " class="product__find-in ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW' hover.jpg " alt="Hình 2 " class="product__img " />
+                                        </a>
+                                    </div>
+                                    <div class="product__info ">
+                                        <h3 class="product__name ">
+                                            <a href=" " class="product__name-link ">
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                            </a>
+                                        </h3>
+                                        <div class="product-item__price ">
+                                            <div class="product-item__price-current ">
+                                                1.200.000 VNĐ
+                                            </div>
+                                            <div class="product-item__price-old ">
+                                                1.500.000 VNĐ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 m-3 c-6 ">
+                                <div class="product__box ">
+                                    <div class="product__box-thumbnail ">
+                                        <div class="sale__flash ">
+                                            <span class="sale__flash-percent ">-10%</span>
+                                        </div>
+                                        <div class="product__new ">
+                                            <span class="product__new-title ">Mới</span>
+                                        </div>
+                                        <div class="product__box-btn ">
+                                            <button type="button " class="product__btn ">
+                                                <i class="product__btn-icon fas fa-cart-arrow-down "></i>
+                                            </button>
+                                            <button type="button " class="product__btn product__btn--m-top ">
+                                                <i class="product__btn-icon far fa-heart "></i>
+                                            </button>
+
+                                        </div>
+                                        <a href=" " class="product__find-out ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW'.jpg " alt="Hình 1 " class="product__img " />
+                                        </a>
+                                        <a href=" " class="product__find-in ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW' hover.jpg " alt="Hình 2 " class="product__img " />
+                                        </a>
+                                    </div>
+                                    <div class="product__info ">
+                                        <h3 class="product__name ">
+                                            <a href=" " class="product__name-link ">
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                            </a>
+                                        </h3>
+                                        <div class="product-item__price ">
+                                            <div class="product-item__price-current ">
+                                                1.200.000 VNĐ
+                                            </div>
+                                            <div class="product-item__price-old ">
+                                                1.500.000 VNĐ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 m-3 c-6 ">
+                                <div class="product__box ">
+                                    <div class="product__box-thumbnail ">
+                                        <div class="sale__flash ">
+                                            <span class="sale__flash-percent ">-10%</span>
+                                        </div>
+                                        <div class="product__new ">
+                                            <span class="product__new-title ">Mới</span>
+                                        </div>
+                                        <div class="product__box-btn ">
+                                            <button type="button " class="product__btn ">
+                                                <i class="product__btn-icon fas fa-cart-arrow-down "></i>
+                                            </button>
+                                            <button type="button " class="product__btn product__btn--m-top ">
+                                                <i class="product__btn-icon far fa-heart "></i>
+                                            </button>
+
+                                        </div>
+                                        <a href=" " class="product__find-out ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW'.jpg " alt="Hình 1 " class="product__img " />
+                                        </a>
+                                        <a href=" " class="product__find-in ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW' hover.jpg " alt="Hình 2 " class="product__img " />
+                                        </a>
+                                    </div>
+                                    <div class="product__info ">
+                                        <h3 class="product__name ">
+                                            <a href=" " class="product__name-link ">
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                            </a>
+                                        </h3>
+                                        <div class="product-item__price ">
+                                            <div class="product-item__price-current ">
+                                                1.200.000 VNĐ
+                                            </div>
+                                            <div class="product-item__price-old ">
+                                                1.500.000 VNĐ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 m-3 c-6 ">
+                                <div class="product__box ">
+                                    <div class="product__box-thumbnail ">
+                                        <div class="sale__flash ">
+                                            <span class="sale__flash-percent ">-10%</span>
+                                        </div>
+                                        <div class="product__new ">
+                                            <span class="product__new-title ">Mới</span>
+                                        </div>
+                                        <div class="product__box-btn ">
+                                            <button type="button " class="product__btn ">
+                                                <i class="product__btn-icon fas fa-cart-arrow-down "></i>
+                                            </button>
+                                            <button type="button " class="product__btn product__btn--m-top ">
+                                                <i class="product__btn-icon far fa-heart "></i>
+                                            </button>
+
+                                        </div>
+                                        <a href=" " class="product__find-out ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW'.jpg " alt="Hình 1 " class="product__img " />
+                                        </a>
+                                        <a href=" " class="product__find-in ">
+                                            <img src="./assets/img_products/AIR JORDAN 1 MID 'WHITE SHADOW' hover.jpg " alt="Hình 2 " class="product__img " />
+                                        </a>
+                                    </div>
+                                    <div class="product__info ">
+                                        <h3 class="product__name ">
+                                            <a href=" " class="product__name-link ">
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                                Air Force Air Force Air Force Air Force Air Force Air
+                                                Force
+                                            </a>
+                                        </h3>
+                                        <div class="product-item__price ">
+                                            <div class="product-item__price-current ">
+                                                1.200.000 VNĐ
+                                            </div>
+                                            <div class="product-item__price-old ">
+                                                1.500.000 VNĐ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</ng-container>
