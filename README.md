@@ -8,14 +8,14 @@
 ![home6](https://user-images.githubusercontent.com/81316439/148669400-0ad45684-f21c-450d-87ea-4099dda914d6.png)
 ![footer](https://user-images.githubusercontent.com/81316439/148669402-650f7ef7-8aeb-4543-9b1b-28bf16b2889c.png)
 # Angular and Node Ecommerce Website [2021]
-- Build an e-commerce website using MERN stack (MySQLi, ExpressJS, Angular and Node.JS)
+- Build an e-commerce website using MEAN stack (MySQLi, ExpressJS, Angular and Node.JS)
 # Technology Applied
 - HTML5 and CSS3: Flexbox.
 - Language: Typescript.
 - Angular: Components, Models, Guards, Pipes, Services, Validators, Ngx-pagination, Ngx-spinner, Ngx-swiper-wrapper, Ngx-toastr, Rxjs.
-- Node & Express: Web API, Body Parser, JWT, Bcryptjs, Cors.
-- API: MySQLi, PhpMyAdmin, Xampp.
--  Development: ESLint, Git, Github.
+- Node & Express: Mysqli, Body Parser, JWT, Bcryptjs, Cors.
+- API: PhpMyAdmin, Xampp.
+- Development: ESLint, Git, Github.
 # Run Locally
 1. Run Backend
 ```javascript
