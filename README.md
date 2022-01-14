@@ -15,7 +15,7 @@
 - Angular: Components, Models, Guards, Pipes, Services, Validators, Ngx-pagination, Ngx-spinner, Ngx-swiper-wrapper, Ngx-toastr, Rxjs.
 - Node & Express: Mysqli, Body Parser, JWT, Bcryptjs, Cors.
 - API: PhpMyAdmin, Xampp.
-- Development: ESLint, Git, Github.
+- Development: TSLint, Git, Github.
 # Run Locally
 1. Run Backend
 ```javascript
