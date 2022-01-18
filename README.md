@@ -10,7 +10,7 @@
 # Angular and Node Ecommerce Website [2021]
 - Build an e-commerce website using MEAN stack (MySQLi, ExpressJS, Angular and Node.JS)
 # Technology Applied
-- HTML5 and CSS3: Flexbox.
+- HTML5 and CSS3: Flexbox, Responsive.
 - Language: Typescript.
 - Angular: Components, Models, Guards, Pipes, Services, Validators, Ngx-pagination, Ngx-spinner, Ngx-swiper-wrapper, Ngx-toastr, Rxjs.
 - Node & Express: Mysqli, Body Parser, JWT, Bcryptjs, Cors.
